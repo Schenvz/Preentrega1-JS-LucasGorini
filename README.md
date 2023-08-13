@@ -6,4 +6,6 @@ No utilicé constructor ni class ya que no vimos POO
 
 Deployments:
 a)https://preentrega1-js-lucas-gorini.vercel.app
+
+
 b)https://schenvz.github.io/Preentrega1-JS-LucasGorini/
