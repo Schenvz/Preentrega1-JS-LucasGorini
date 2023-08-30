@@ -1,78 +1,110 @@
 //la clase no es necesaria, solo la uso para repasar POO
-
+//Definición de la clase Calculadora con métodos para operaciones matemáticas
 class Calculadora {
-	constructor(){
+    sumar(num1, num2) {
+        return parseFloat(num1) + parseFloat(num2);
+    }
+    restar(num1, num2) {
+        return parseFloat(num1) - parseFloat(num2);
+    }
+    dividir(num1, num2) {
+        if (parseFloat(num2) !== 0) {
+            return parseFloat(num1) / parseFloat(num2);
+        } else {
+            return "Error: División por cero";
+        }
+    }
+    multiplicar(num1, num2) {
+        return parseFloat(num1) * parseFloat(num2);
+    }
+    potenciar(num, exp) {
+        return Math.pow(num, exp);
+    }
+    raizCuadrada(num) {
+        return Math.sqrt(parseFloat(num));
+    }
+    raizCubica(num) {
+        return Math.cbrt(parseFloat(num));
+    }
+}
 
-	}
-sumar(num1,num2){
-	return parseInt(num1) + parseInt(num2);
-}
-restar(num1,num2){
-	return parseInt(num1) - parseInt(num2);
-}
-dividir(num1,num2){
-	return parseInt(num1) / parseInt(num2);
-}
-multiplicar(num1,num2){
-	return parseInt(num1) * parseInt(num2);
-}
-potenciar(num,exp){
-	return num**exp
-}
-raizCuadrada(num){
-	return Math.sqrt(num);
-}
-raizCubica(num){
-	return Math.cbrt(num);
-}
-}
-
+//creo una instancia de la clase Calculadora
 const calculadora = new Calculadora();
+//objeto que mapea números a operaciones
+const operaciones = {
+    1: "sumar",
+    2: "restar",
+    3: "dividir",
+    4: "multiplicar",
+    5: "potenciar",
+    6: "raizCuadrada",
+    7: "raizCubica"
+};
 
-alert("¿Qué operación deseas realizar?");
-let operacion = prompt("1: suma, 2: resta, 3: división, 4: multiplicación, 5: potenciación, 6: raíz cuadrada, 7: raíz cubica");
+const historial = []; // Array para almacenar el historial de operaciones
 
-if (operacion == 1) {
-	let numero1 = prompt("Primer número para sumar");
-	let numero2 = prompt("Segundo número para sumar");
-	resultado = calculadora.sumar(numero1,numero2);
-	alert(`Tu  resultado es ${resultado}`);
-}
-else if (operacion == 2) {
-	let numero1 = prompt("Primer número para restar");
-	let numero2 = prompt("Segundo número para restar");
-	resultado = calculadora.restar(numero1,numero2);
-	alert(`Tu resultado es ${resultado}`);
-}
-else if (operacion == 3) {
-	let numero1 = prompt("Primer número para dividir");
-	let numero2 = prompt("Segundo número para dividir");
-	resultado = calculadora.dividir(numero1,numero2);
-	alert(`Tu resultado es ${resultado}`);
-}
-else if (operacion == 4) {
-	let numero1 = prompt("Primer número para multiplicar");
-	let numero2 = prompt("Segundo número para multiplicar");
-	resultado = calculadora.multiplicar(numero1,numero2);
-	alert(`Tu resultado es ${resultado}`);
-}
-else if (operacion == 5) {
-	let numero1 = prompt("Primer número a potenciar");
-	let numero2 = prompt("Segundo número a potenciar");
-	resultado = calculadora.potenciar(numero1,numero2);
-	alert(`Tu resultado es ${resultado}`);
-}
-else if (operacion == 6) {
-	let numero1 = prompt("Conocer la raíz cuadrada de: (PONE UN NÚMERO)");
-	resultado = calculadora.raizCuadrada(numero1);
-	alert(`Tu resultado es ${resultado}`);
-}
-else if (operacion == 7) {
-	let numero1 = prompt("Conocer la raíz cúbica de: (PONE UN NÚMERO)");
-	resultado = calculadora.raizCubica(numero1);
-	alert(`Tu resultado es ${resultado}`);
+let continuar = true;
+
+while (continuar) {
+    try {
+        const operacionInput = prompt("¿Qué operación deseas realizar?\n" +
+            "1: suma, 2: resta, 3: división, 4: multiplicación, 5: potenciación, 6: raíz cuadrada, 7: raíz cúbica");
+
+        if (operacionInput === null) {
+            throw new Error("Operación cancelada");
+        }
+
+        const operacion = parseInt(operacionInput);
+
+        if (isNaN(operacion) || !(operacion in operaciones)) {
+            throw new Error("Operación no válida");
+        }
+
+        const numero1Input = prompt(`Primer número para ${operaciones[operacion]}`);
+
+        if (numero1Input === null) {
+            throw new Error("Operación cancelada");
+        }
+
+        const numero1 = parseFloat(numero1Input);
+
+        let resultado;
+        let numero2 = null;
+
+        if (operacion !== 6 && operacion !== 7) {
+            const numero2Input = prompt(`Segundo número para ${operaciones[operacion]}`);
+
+            if (numero2Input === null) {
+                throw new Error("Operación cancelada");
+            }
+
+            numero2 = parseFloat(numero2Input);
+        }
+
+        resultado = calculadora[operaciones[operacion]](numero1, numero2);
+
+        // Agregar la operación y su resultado al historial
+        historial.push({
+            operacion: operaciones[operacion],
+            numeros: [numero1, numero2],
+            resultado: resultado
+        });
+
+        alert(`Tu resultado es ${resultado}`);
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+
+    const decision = prompt("¿Deseas realizar otra operación? (Sí / No)").toLowerCase();
+    if (decision !== "sí" && decision !== "si") {
+        continuar = false;
+    }
 }
 
-else {
-	alert("No se ha encontrado la operación")
+// Mostrar el historial de operaciones al final
+console.log("Historial de operaciones:");
+for (const operacion of historial) {
+    console.log(`${operacion.operacion}: ${operacion.numeros.join(', ')} = ${operacion.resultado}`);
 }
+
+alert("Gracias por utilizar nuestra calculadora!!");
