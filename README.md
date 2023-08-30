@@ -8,4 +8,4 @@ Deployments:
 a)https://preentrega1-js-lucas-gorini.vercel.app
 
 
-b)https://schenvz.github.io/Preentrega1-JS-LucasGorini/
+b)https://schenvz.github.io/Preentregas-JS-LucasGorini/
