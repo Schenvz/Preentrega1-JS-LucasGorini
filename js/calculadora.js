@@ -25,40 +25,42 @@ class Calculadora {
     }
 }
 
-// Crear una instancia de la clase Calculadora
+// DOM
 const calculadora = new Calculadora();
 
-// Definición de la función realizarOperacion
-function realizarOperacion() {
-    // Obtener los valores de los campos de entrada y la operación seleccionada
-    const numero1 = parseFloat(document.getElementById("numero1").value);
-    const numero2 = parseFloat(document.getElementById("numero2").value);
-    const operacion = document.getElementById("operacion").value.toLowerCase(); // Convertir a minúsculas
+// Obtén una referencia al botón "=" por su id
+const igualBoton = document.getElementById("igualBoton");
 
-    try {
-        // Realizar la operación utilizando la calculadora
-        const resultado = calculadora[operacion](numero1, numero2);
+const calcularButton = document.getElementById("CalcularButton");
 
-        // Mostrar el resultado en el elemento con id "resultado"
-        mostrarResultado(resultado);
-    } catch (error) {
-        // Manejar errores y mostrar mensajes de error en caso de excepciones
-        mostrarError(error.message);
-    }
-}
 
-function mostrarResultado(resultado) {
-    const resultadoElemento = document.getElementById("resultado");
-    resultadoElemento.textContent = `El resultado es: ${resultado}`;
-}
-
-function mostrarError(mensaje) {
-    const resultadoElemento = document.getElementById("resultado");
-    resultadoElemento.textContent = `Error: ${mensaje}`;
-}
-
-// Obtén una referencia al botón por su id
-const calcularButton = document.getElementById("calcularButton");
-
-// Agrega un evento de clic al botón
+// Agrega un evento de clic a ambos botones para realizar la operación
 calcularButton.addEventListener("click", realizarOperacion);
+igualBoton.addEventListener("click", realizarOperacion);
+
+// Función para realizar la operación seleccionada
+function realizarOperacion() {
+    const operacion = document.getElementById("operacion").value;
+    let resultado;
+
+    if (operacion === "raizCuadrada") {
+        resultado = calculadora.raizCuadrada(
+            document.getElementById("numero1").value
+        );
+    } else if (operacion === "raizCubica") {
+        resultado = calculadora.raizCubica(
+            document.getElementById("numero1").value
+        );
+    } else {
+        const numero1 = parseFloat(document.getElementById("numero1").value);
+        const numero2 = parseFloat(document.getElementById("numero2").value);
+
+        if (!isNaN(numero1) && !isNaN(numero2)) {
+            resultado = calculadora[operacion](numero1, numero2);
+        } else {
+            resultado = "Error: Los valores ingresados no son números";
+        }
+    }
+
+    document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
+}

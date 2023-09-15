@@ -39,31 +39,15 @@
                     <option value="potenciar">Potenciar</option>
                 </select>
             </div>
-            <div class="btn-group" role="group" aria-label="Números">
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(1)">1</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(2)">2</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(3)">3</button>
-            </div>
-            <div class="btn-group" role="group" aria-label="Números">
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(4)">4</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(5)">5</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(6)">6</button>
-            </div>
-            <div class="btn-group" role="group" aria-label="Números">
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(7)">7</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(8)">8</button>
-                <button type="button" class="btn btn-primary" onclick="agregarNumero(9)">9</button>
-            </div>
             <div class="btn-group" role="group" aria-label="Operaciones">
-                <button type="button" class="btn btn-secondary" onclick="seleccionarOperacion('sumar')">+</button>
-                <button type="button" class="btn btn-secondary" onclick="seleccionarOperacion('restar')">-</button>
-                <button type="button" class="btn btn-secondary" onclick="seleccionarOperacion('multiplicar')">*</button>
-                <button type="button" class="btn btn-secondary" onclick="seleccionarOperacion('dividir')">/</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Sumar +</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')"> Restar-</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicar*</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')"> Dividir/</button>
             </div>
-            <button type="button" class="btn btn-primary" onclick="agregarNumero(0)">0</button>
-            <button type="button" class="btn btn-success" onclick="realizarOperacion()">=</button>
-            <button type="button" class="btn btn-danger" onclick="borrarPantalla()">C</button>
-            <div id="resultado" class="result"></div>
+            <button type="button" class="btn btn-success" onclick="calcularButton()">Resultado</button>
+            <button id="CalcularButton">Calcular</button>
+            <button type="button" class="btn btn-danger" onclick="borrarPantalla()">Borrar</button>
         </div>
     </div>
     <div>
