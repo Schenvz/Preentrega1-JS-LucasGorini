@@ -1,5 +1,5 @@
-# Preentrega2-JS-LucasGorini
-Trabajo CoderHouse FS Preentrega N2 JavaScript
+# Preentrega3-JS-LucasGorini
+Trabajo CoderHouse FS Preentrega N3 JavaScript
 
 En mi código utilicé lo siguiente:
 
