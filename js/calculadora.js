@@ -1,17 +1,21 @@
 // Definición de la clase Calculadora
 class Calculadora {
+    // Método para sumar dos números
     sumar(num1, num2) {
         return parseFloat(num1) + parseFloat(num2);
     }
 
+    // Método para restar dos números
     restar(num1, num2) {
         return parseFloat(num1) - parseFloat(num2);
     }
 
+    // Método para multiplicar dos números
     multiplicar(num1, num2) {
         return parseFloat(num1) * parseFloat(num2);
     }
 
+    // Método para dividir dos números
     dividir(num1, num2) {
         if (parseFloat(num2) !== 0) {
             return parseFloat(num1) / parseFloat(num2);
@@ -19,28 +23,15 @@ class Calculadora {
             return "Error: División por cero";
         }
     }
-
-    potenciar(num, exp) {
-        return Math.pow(num, exp);
-    }
-
-    raizCuadrada(num) {
-        return Math.sqrt(parseFloat(num));
-    }
-
-    raizCubica(num) {
-        return Math.cbrt(parseFloat(num));
-    }
 }
 
-// Crear una instancia de la clase Calculadora
+// Instancia de la clase Calculadora
 const calculadora = new Calculadora();
 
-// Obtén una referencia al botón por su id
+// Referencia al botón por su ID
 const calcularButton = document.getElementById("calcularButton");
 
-// Agrega un evento de clic al botón para realizar la operación
-calcularButton.addEventListener("click", realizarOperacion);
+// Funciones
 
 // Función para cambiar la operación seleccionada
 function cambiarOperacion(simbolo) {
@@ -61,11 +52,9 @@ function cambiarOperacion(simbolo) {
         case '/':
             operacionSelect.value = 'dividir';
             break;
-        // Agrega más casos para otros símbolos si es necesario
     }
 }
 
-//funciones
 // Función para realizar la operación seleccionada
 function realizarOperacion() {
     const numero1 = parseFloat(document.getElementById("numero1").value);
@@ -106,6 +95,7 @@ function realizarOperacion() {
         });
     }
 }
+
 // Función para borrar los valores en los campos de entrada y la pantalla de resultado con confirmación
 function borrarPantalla() {
     // Verificar si los campos tienen valores antes de mostrar el mensaje de confirmación
@@ -124,14 +114,20 @@ function borrarPantalla() {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if (result.isConfirmed) {
-              // No hagas nada
             } else {
             borrarCampos();
             Swal.fire('Números borrados', '', 'error');
             }
         });
-        
     }
+}
+
+// Mostrar el historial de operaciones en el div 
+function mostrarHistorial() {
+    historialDiv.innerHTML = "<h3>Historial de Operaciones:</h3>";
+    historialOperaciones.forEach((operacion, index) => {
+        historialDiv.innerHTML += `<p>${index + 1}: ${operacion}</p>`;
+    });
 }
 
 // Función para borrar los valores en los campos de entrada y la pantalla de resultado
@@ -144,8 +140,3 @@ function borrarCampos() {
     numero2Input.value = "";
     resultadoElement.textContent = "";
 }
-
-
-
-
-

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración de la página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <!-- Enlaces a recursos externos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="icon" href="./img/btc3.ico">
     <link rel="stylesheet" href="styles.css">
@@ -12,7 +14,7 @@
 <body>
     <section>
         <div class="container">
-            <!-- Presentación de la página -->
+            <!-- Sección de presentación de la página -->
             <div class="container p-3 my-3">
                 <h1 class="text-center">Bienvenido a tu página favorita acerca de finanzas</h1>
                 <p class="text-center">Todas las noticias sobre macro y microeconomía, en un solo lugar...</p>
@@ -22,6 +24,7 @@
     <div class="container">
         <h2 class="text-center">Calculadora</h2>
         <div class="calculator">
+            <!-- Formulario de la calculadora -->
             <div class="input-group mb-3">
                 <span class="input-group-text" id="numero1Label">Número 1:</span>
                 <input type="number" class="form-control" id="numero1" placeholder="Ingrese el primer número">
@@ -37,24 +40,27 @@
                     <option value="restar">Restar</option>
                     <option value="dividir">Dividir</option>
                     <option value="multiplicar">Multiplicar</option>
-                    <option value="potenciar">Potenciar</option>
                 </select>
             </div>
-                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Suma+</button>
+            <!-- Botones de selección de operación -->
+            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Suma+</button>
             <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')">Resta-</button>
             <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicación*</button>
             <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')">División/</button>
-            </div>
-            <button type="button" class="btn btn-success" onclick="realizarOperacion()" id="igualBoton">Resultado</button>
-            <button type="button" class="btn btn-danger" onclick="borrarPantalla()">BORRAR</button>
-            <div id="resultado" class="result"></div>
         </div>
+        <!-- Botón para calcular y mostrar resultados -->
+        <button type="button" class="btn btn-success" onclick="realizarOperacion()" id="igualBoton">Resultado</button>
+        <!-- Botón para borrar valores -->
+        <button type="button" class="btn btn-danger" onclick="borrarPantalla()">BORRAR</button>
+        <!-- Div para mostrar el resultado -->
+        <div id="resultado" class="result"></div>
     </div>
     <div>
         <div class="container-sm border bg-success text-white"></div>
-            <h2 class="text-bg-danger text-center">Gracias por utilizar nuestra calculadora</h2>
+        <!-- Mensaje de agradecimiento -->
+        <h2 class="text-bg-danger text-center">Gracias por utilizar nuestra calculadora</h2>
     </div>
-    <!-- Footer -->
+    <!-- Pie de página -->
     <div class="container">
         <footer class="py-3 my-4">
             <p class="text-center text-body-secondary"><a href="https://finargy.vercel.app/" target="_blank">Finargy.com</a></p>
@@ -62,7 +68,8 @@
         </footer>
     </div>
 
-<script src="./js/calculadora.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.all.min.js"></script>
+    <!-- Enlaces a scripts de JavaScript -->
+    <script src="./js/calculadora.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
