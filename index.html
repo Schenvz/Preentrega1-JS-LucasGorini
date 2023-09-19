@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="icon" href="./img/btc3.ico">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.min.css">
 </head>
 <body>
     <section>
@@ -39,15 +40,14 @@
                     <option value="potenciar">Potenciar</option>
                 </select>
             </div>
-            <div class="btn-group" role="group" aria-label="Operaciones">
-                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Sumar +</button>
-                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')"> Restar-</button>
-                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicar*</button>
-                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')"> Dividir/</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Suma+</button>
+            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')">Resta-</button>
+            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicación*</button>
+            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')">División/</button>
             </div>
-            <button type="button" class="btn btn-success" onclick="calcularButton()">Resultado</button>
-            <button id="CalcularButton">Calcular</button>
-            <button type="button" class="btn btn-danger" onclick="borrarPantalla()">Borrar</button>
+            <button type="button" class="btn btn-success" onclick="realizarOperacion()" id="igualBoton">Resultado</button>
+            <button type="button" class="btn btn-danger" onclick="borrarPantalla()">BORRAR</button>
+            <div id="resultado" class="result"></div>
         </div>
     </div>
     <div>
@@ -62,6 +62,7 @@
         </footer>
     </div>
 
-    <script src="./js/calculadora.js"></script>
+<script src="./js/calculadora.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
