@@ -43,22 +43,32 @@
                 </select>
             </div>
             <!-- Botones de selección de operación -->
-            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Suma+</button>
-            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')">Resta-</button>
-            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicación*</button>
-            <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')">División/</button>
+            <div class="text-center">
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('+')">Suma+</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('-')">Resta-</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('*')">Multiplicación*</button>
+                <button type="button" class="btn btn-secondary" onclick="cambiarOperacion('/')">División/</button>
+            </div>
         </div>
         <!-- Botón para calcular y mostrar resultados -->
-        <button type="button" class="btn btn-success" onclick="realizarOperacion()" id="igualBoton">Resultado</button>
+        <div class="container-sm border bg-success text-white"></div>
+        <div class="text-center"><button type="button" class="btn btn-success" onclick="realizarOperacion()" id="igualBoton">Resultado</button></div>
         <!-- Botón para borrar valores -->
-        <button type="button" class="btn btn-danger" onclick="borrarPantalla()">BORRAR</button>
-        <!-- Div para mostrar el resultado -->
-        <div id="resultado" class="result"></div>
+        <div class="text-center"><button type="button" class="btn btn-danger" onclick="borrarPantalla()">BORRAR</button></div>
     </div>
     <div>
         <div class="container-sm border bg-success text-white"></div>
         <!-- Mensaje de agradecimiento -->
         <h2 class="text-bg-danger text-center">Gracias por utilizar nuestra calculadora</h2>
+    </div>
+    <!-- Segunda SECCIÓN-->
+    <div class="text-center">
+        <h3>Cotizaciones de Divisas</h3>
+        <iframe width="300px" height="690px" src="https://www.dolarsi.com/func/moduloArriba-n.html" frameborder="0" scrolling="0" allowfullscreen=""></iframe>
+    </div>
+    <!-- Tercera SECCIÓN-->
+    <div>
+        <h4>CONVERSOR</h4>
     </div>
     <!-- Pie de página -->
     <div class="container">
@@ -70,6 +80,7 @@
 
     <!-- Enlaces a scripts de JavaScript -->
     <script src="./js/calculadora.js"></script>
+    <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
