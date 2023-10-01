@@ -1,5 +1,5 @@
-# Preentrega3-JS-LucasGorini
-Trabajo CoderHouse FS Preentrega N3 JavaScript
+# PreentregaFinal-JS-LucasGorini
+Trabajo CoderHouse FS Preentrega FINAL JavaScript
 
 En mi código utilicé lo siguiente:
 
@@ -11,8 +11,13 @@ En mi código utilicé lo siguiente:
 
 4)Funciones para borrar valores en campos.
 
+5)Conversor de divisas
+
+6)CALCULADORA
+
    
 En resumen, mi código crea una calculadora interactiva que permite al usuario realizar diferentes operaciones matemáticas y registra el historial de operaciones...
+permitiendo también la conversión de dólar a peso y viceversa
 
 
 Deployments:       
